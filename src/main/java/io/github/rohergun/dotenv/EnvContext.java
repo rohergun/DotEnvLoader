@@ -21,7 +21,9 @@ public final class EnvContext {
     }
 
     static void putAll(Map<String, String> envEntries){
-        // Todo
+        synchronized (store){
+            store.putAll(envEntries);
+        }
     }
 
     // Reading from DotEnvLoader
