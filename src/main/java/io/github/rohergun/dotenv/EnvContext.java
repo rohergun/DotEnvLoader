@@ -28,7 +28,18 @@ public final class EnvContext {
 
     // Reading from DotEnvLoader
     public static String get(String key){
-        // Todo
+        return get(key, null);
+    }
+
+    public static String get(String key, String defaultValue){
+        synchronized (store){
+            if (store.containsKey(key)) {
+                return store.get(key);
+            }
+        }
+        // Fallback
+        String osVal = System.getenv(key);
+        return osVal != null ? osVal : defaultValue;
     }
 
     // returns all values that loaded to .env
