@@ -73,10 +73,10 @@ public class DotEnvLoader {
         try{
             return Files.readAllLines(path);
         }catch (IOException e) {
-            // Todo add custom error handling
-            e.printStackTrace();
+            throw new DotLoaderException(
+                    "Failed to read the file path: " + path + "\n", e
+            );
         }
-        return null;
     }
 
 }
