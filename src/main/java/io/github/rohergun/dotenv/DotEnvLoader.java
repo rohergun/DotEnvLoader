@@ -29,9 +29,9 @@ public class DotEnvLoader {
         if (!Files.exists(path)) {
             return;
         }
-//        Todo Read lines from the input path
-//        Todo Parse the lines to source names
-//        Todo EnvContext.putAll(parsed);
+        List<String> lines = readLines(path);
+        Map<String, String> parsedLines = parse(lines);
+        EnvContext.putAll(parsedLines);
     }
 
     static Map<String, String> parse(List<String> lines){
