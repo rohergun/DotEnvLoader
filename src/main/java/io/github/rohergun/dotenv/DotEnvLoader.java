@@ -1,5 +1,6 @@
 package io.github.rohergun.dotenv;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -25,10 +26,20 @@ public class DotEnvLoader {
         if (!Files.exists(path)) {
             return;
         }
-//        Read lines from the input path
-//        Parse the lines to source names
+//        Todo Read lines from the input path
+//        Todo Parse the lines to source names
 //        Todo EnvContext.putAll(parsed);
     }
 
+
+    private static List<String> readLines(Path path) {
+        try{
+            return Files.readAllLines(path);
+        }catch (IOException e) {
+            // Todo add custom error handling
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }
