@@ -30,6 +30,7 @@ public class DotEnvLoader {
             return;
         }
         List<String> lines = readLines(path);
+        assert lines != null;
         Map<String, String> parsedLines = parse(lines);
         EnvContext.putAll(parsedLines);
     }
