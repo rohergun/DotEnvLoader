@@ -1,5 +1,6 @@
 package io.github.rohergun.dotenv;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +45,9 @@ public final class EnvContext {
 
     // returns all values that loaded to .env
     public static Map<String, String> all(){
-        // Todo
+        synchronized (store) {
+            return Collections.unmodifiableMap(new HashMap<>(store));
+        }
     }
 
 }
