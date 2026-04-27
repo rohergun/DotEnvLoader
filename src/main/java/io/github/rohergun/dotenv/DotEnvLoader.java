@@ -31,11 +31,11 @@ public class DotEnvLoader {
         }
         List<String> lines = readLines(path);
         assert lines != null;
-        Map<String, String> parsedLines = parse(lines);
+        Map<String, String> parsedLines = parse(lines, path.toString());
         EnvContext.putAll(parsedLines);
     }
 
-    static Map<String, String> parse(List<String> lines){
+    static Map<String, String> parse(List<String> lines, String sourceName){
         Map<String, String> parsedLines = new HashMap<>();
 
         for (int i=0; i<lines.size(); i++){
@@ -44,22 +44,24 @@ public class DotEnvLoader {
             if (raw.isBlank()) {
                 continue;
             }
+            int lineNumber = i + 1;
 
             int equalsIndex = raw.indexOf('=');
             if (equalsIndex < 0){
-                // Todo add custom exception
-                System.err.println("Missing '=' separator between key=value");
+                throw new DotEnvParseException(sourceName, lineNumber, raw,
+                        "Missing '=' separator between key=value");
             }
 
             String key = raw.substring(0, equalsIndex);
             String val = raw.substring(equalsIndex + 1);
             if (key.isEmpty()){
-                // Todo add custom exception
-                System.err.println("Key is missing");
+                throw new DotEnvParseException(sourceName, lineNumber, raw,
+                        "key is empty");
             }
             if (!KEY_PATTERN.matcher(key).matches()){
-                // Todo add custom exception
-                System.err.println("Key is not valid pattern");
+                throw new DotEnvParseException(sourceName, lineNumber, raw,
+                        "key '" + key + "' is not valid\n" +
+                                "(uppercase letters, digits, underscores only and must start with letter or underscore)");
             }
             parsedLines.put(key, val);
         }
