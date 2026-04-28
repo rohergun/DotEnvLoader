@@ -1,4 +1,4 @@
-[![Build](https://github.com/rohergun/DotEnvLoader/actions/badge.svg)](https://github.com/rohergun/DotEnvLoader/actions/)
+[![Build](https://github.com/rohergun/DotEnvLoader/actions/workflow/build.yaml/badge.svg)](https://github.com/rohergun/DotEnvLoader/actions/workflow/build.yaml/badge.svg)
 
 
 ## DotEnvLoader
