@@ -20,4 +20,15 @@ public class DotEnvParseException extends RuntimeException{
         );
     }
 
+    public String getSourceFile(){
+        return this.sourceFile;
+    }
+
+    public int getLineNumber(){
+        return this.lineNumber;
+    }
+
+    public String getRawLine(){
+        return this.rawLine;
+    }
 }
