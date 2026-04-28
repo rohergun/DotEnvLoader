@@ -1,5 +1,4 @@
-[![Build](https://github.com/rohergun/DotEnvLoader/actions/workflow/build.yaml/badge.svg)](https://github.com/rohergun/DotEnvLoader/actions/workflow/build.yaml/badge.svg)
-
+[![Build & Test](https://github.com/rohergun/DotEnvLoader/actions/workflows/build.yaml/badge.svg)](https://github.com/rohergun/DotEnvLoader/actions/workflows/build.yaml)
 
 ## DotEnvLoader
 A lightweight Java library for loading .env files and making their values accessible within your application.
