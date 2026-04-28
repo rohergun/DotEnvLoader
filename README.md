@@ -62,7 +62,7 @@ offending line: "badline"
 
 ### Building from Source:
 ```bash
-git clone https://github.com/rohergun/dotenv-loader.git
+git clone https://github.com/rohergun/DotEnvLoader.git
 cd dotenv-loader
 mvn verify
 ```
