@@ -50,4 +50,9 @@ public final class EnvContext {
         }
     }
 
+    public static void clear(){
+        synchronized (store){
+            store.clear();
+        }
+    }
 }
