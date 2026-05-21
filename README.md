@@ -1,7 +1,9 @@
 [![Build & Test](https://github.com/rohergun/DotEnvLoader/actions/workflows/build.yaml/badge.svg)](https://github.com/rohergun/DotEnvLoader/actions/workflows/build.yaml)
 
 ## DotEnvLoader
-A lightweight Java library for loading .env files and making their values accessible within your application.
+Java does not have build-in simple way to load `.env` files like `load_dotenv` in python.
+
+DotEnvLoader is a lightweight library for loading environment variables from .env files into your Java application with simple API.
 
 ### Installation:
 Add the following dependency to your pom.xml:
