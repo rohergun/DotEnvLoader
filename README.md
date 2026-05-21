@@ -21,16 +21,16 @@ API_KEY=supersecretkey
 SERVER_PORT=8080
 ```
 Load it at application startup:
-```
+```java
 // Load from project root (default)
 DotEnvLoader.load();
 
-// Load from a custom path
+// Option for loading from custom path
 DotEnvLoader.load("/path/to/custom.env");
 
 // Access values
-String dbUrl   = EnvContext.get("DATABASE_URL");
-String port    = EnvContext.get("SERVER_PORT", "8080"); // with default fallback
+String dbUrl = EnvContext.get("DATABASE_URL");
+String port = EnvContext.get("SERVER_PORT", "8080"); // with default fallback
 ```
 EnvContext.get() checks the .env store first, then falls back to the real OS environment,<br>
 then returns null (or the supplied default).
